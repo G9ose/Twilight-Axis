@@ -58,7 +58,7 @@
 	return FALSE
 
 /datum/sex_action/vaginal_sex/knot
-	name = "Knot their cunt"
+	name = "Трахнуть(кнот)"
 	knot_on_finish = TRUE
 
 /datum/sex_action/vaginal_sex/knot/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)

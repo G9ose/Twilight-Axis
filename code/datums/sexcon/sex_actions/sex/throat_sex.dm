@@ -53,7 +53,7 @@
 	return FALSE
 
 /datum/sex_action/throat_sex/knot
-	name = "Knot their throat"
+	name = "Трахнуть глотку(кнот)"
 	knot_on_finish = TRUE
 	knot_throat = TRUE
 
