@@ -120,7 +120,7 @@
 					emote("painscream")
 					visible_message(span_warning("[src] freezes in pain!"),
 								span_warning("I'm frozen in pain!"))
-					sleep(10)
+					stoplag(10)
 					Stun(110)
 					Knockdown(110)
 
