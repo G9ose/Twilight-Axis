@@ -156,7 +156,7 @@
 	smeltresult = /obj/item/ingot/steel
 	bolt_type = BOLT_TYPE_NO_BOLT
 	casing_ejector = FALSE
-	associated_skill = null
+	associated_skill = /datum/skill/combat/polearms
 	//pickup_sound = 'sound/sheath_sounds/draw_from_holster.ogg'
 	//sheathe_sound = 'sound/sheath_sounds/put_back_to_holster.ogg'
 	var/spread_num = 10
@@ -707,20 +707,6 @@
 	icon = 'modular_twilight_axis/firearms/icons/arquebusbaoynet.dmi'
 	gripped_intents = list(/datum/intent/shoot/twilight_firearm, /datum/intent/arc/twilight_firearm, INTENT_GENERIC, /datum/intent/spear/thrust/militia)
 	wdefense = 5
-	associated_skill = /datum/skill/combat/polearms
-
-/obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet/pre_attack(atom/A, mob/living/user, params)
-	if(!user.used_intent.tranged)
-		if(!istype(A, /obj/structure/fluff/statue/tdummy))
-			var/firearm_skill = (user?.mind ? user.get_skill_level(/datum/skill/combat/twilight_firearms) : 0)
-			var/polearms_skill = (user?.mind ? user.get_skill_level(/datum/skill/combat/polearms) : 1)
-			if(firearm_skill > polearms_skill)
-				src.associated_skill = /datum/skill/combat/twilight_firearms
-			else
-				src.associated_skill = /datum/skill/combat/polearms
-		else
-			src.associated_skill = /datum/skill/combat/polearms
-	. = ..()
 
 /obj/item/gun/ballistic/twilight_firearm/arquebus/decorated
 	name = "decorated arquebus rifle"
@@ -745,6 +731,7 @@
 	item_state = "pistol"
 	force = 10
 	possible_item_intents = list(/datum/intent/shoot/twilight_firearm, /datum/intent/arc/twilight_firearm, /datum/intent/mace/strike/wood)
+	associated_skill = /datum/skill/combat/maces
 	gripped_intents = null
 	wlength = WLENGTH_SHORT
 	w_class = WEIGHT_CLASS_SMALL
@@ -863,7 +850,6 @@
 	advanced_icon_f	= 'modular_twilight_axis/firearms/icons/purgatory/purgatory_f.dmi'
 	advanced_icon_s = 'modular_twilight_axis/firearms/icons/purgatory/purgatory_s.dmi'
 	gripped_intents = list(/datum/intent/shoot/twilight_firearm, /datum/intent/arc/twilight_firearm, INTENT_GENERIC, /datum/intent/spear/thrust/militia)
-	associated_skill = /datum/skill/combat/twilight_firearms
 	is_silver = TRUE
 	force = 15
 	force_wielded = 20
