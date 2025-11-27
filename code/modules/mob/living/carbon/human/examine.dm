@@ -88,6 +88,13 @@
 			if(!J || J.wanderer_examine)
 				display_as_wanderer = TRUE
 
+		if(display_as_wanderer)
+			. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name]."))
+		else if(used_title)
+			. = list(span_info("ø ------------ ø\nThis is <EM>[used_name]</EM>, the [race_name] [used_title]."))
+		else
+			. = list(span_info("ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name]."))
+
 		if(HAS_TRAIT(src, TRAIT_WITCH))
 			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_INQUISITION) || HAS_TRAIT(user, TRAIT_WITCH))
 				. += span_warning("A witch! Their presence brings an unsettling aura.")
@@ -856,11 +863,20 @@
 							src_skill = I.associated_skill
 					var/skilldiff = user.get_skill_level(user_skill) - get_skill_level(src_skill)
 					. += "<font size = 3><i>[skilldiff_report(skilldiff)] in my wielded skill than they are in theirs.</i></font>"
+	var/displayed_headshot
+	var/datum/antagonist/vampire/vampireplayer = src.mind?.has_antag_datum(/datum/antagonist/vampire)
+	var/datum/antagonist/lich/lichplayer = src.mind?.has_antag_datum(/datum/antagonist/lich)
+	if(vampireplayer && (!SEND_SIGNAL(src, COMSIG_DISGUISE_STATUS))&& !isnull(vampire_headshot_link)) //vampire with their disguise down and a valid headshot
+		displayed_headshot = src.vampire_headshot_link
+	else if (lichplayer && !isnull(src.lich_headshot_link))//Lich with a valid headshot
+		displayed_headshot = src.lich_headshot_link
+	else
+		displayed_headshot = src.headshot_link
 
 	if(!obscure_name || client?.prefs.masked_examine)
-		if((user.client?.prefs.chatheadshot) && headshot_link)
-			. += "<span class='info'><img src=[headshot_link] width=100 height=100/></span>"
-		if(flavortext || headshot_link || ooc_notes)
+		if((user.client?.prefs.chatheadshot) && displayed_headshot)
+			. += "<span class='info'><img src=[displayed_headshot] width=100 height=100/></span>"
+		if(flavortext || displayed_headshot || ooc_notes)
 			. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a>"
 
 	if(lip_style)
