@@ -735,6 +735,8 @@
 	remove_filter(ABYSSAL_GLOW_FILTER)
 	update_icon()
 
+#undef ABYSSAL_GLOW_FILTER
+
 /obj/structure/crystal_spire/proc/convert_surroundings()
 	start_conversion()
 	var/turf/center = get_turf(src)
@@ -1596,6 +1598,7 @@
         added_int = 50,\
         added_def = 2,\
     )
+	weapon.is_silver = TRUE
 
 	user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 	user.apply_status_effect(/datum/status_effect/debuff/devitalised/lesser)
