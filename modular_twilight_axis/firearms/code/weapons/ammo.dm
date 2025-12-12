@@ -12,7 +12,7 @@
 /obj/projectile/bullet/twilight_lead
 	name = "lead sphere"
 	desc = "Небольшая свинцовая сфера. Хорошо сочетается с порохом."
-	damage = 100	//higher damage than crossbow
+	damage = 75
 	damage_type = BRUTE
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
 	icon_state = "musketball_proj"
@@ -22,15 +22,15 @@
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "piercing"
-	armor_penetration = 75
+	armor_penetration = 40
 	speed = 0.1
 
 /obj/projectile/bullet/twilight_lead/silver
 	name = "silver sphere"
 	desc = "Небольшая серебряная сфера. Мягче, чем свинцовая пуля, но крайне эффективна против нежити."
 	ammo_type = /obj/item/ammo_casing/caseless/twilight_lead/silver
-	damage = 75
-	armor_penetration = 60
+	damage = 65
+	armor_penetration = 35
 	silver = TRUE
 	critfactor = 0.8
 
@@ -160,7 +160,7 @@
 		var/mob/living/T = target
 		if(istype(fired_from, /obj/item/gun/ballistic/twilight_firearm)) //Double damage in close range
 			var/obj/item/gun/ballistic/twilight_firearm/G = fired_from
-			for(var/mob/M in range(5, T))
+			for(var/mob/M in range(G.effective_range, T))
 				if(M == firer)
 					damage *= 2
 					armor_penetration *= 2
