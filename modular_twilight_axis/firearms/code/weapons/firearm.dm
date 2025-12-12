@@ -170,6 +170,7 @@
 	var/powder_per_reload = 1
 	var/locktype = "Wheellock"
 	var/match_delay = 10
+	var/effective_range = 5
 	var/obj/item/twilight_ramrod/myrod = null
 
 	//Advanced icon stuff
@@ -740,8 +741,7 @@
 	bigboy = FALSE
 	gripsprite = FALSE
 	cartridge_wording = "bullet"
-	damfactor = 0.7
-	critfactor = 0.7
+	effective_range = 3
 	wdefense = 0
 	advanced_icon = 'modular_twilight_axis/firearms/icons/pistol/pistol.dmi'
 	advanced_icon_r = 'modular_twilight_axis/firearms/icons/pistol/pistol_r.dmi'
@@ -798,8 +798,8 @@
 	item_state = "flintgonne"
 	gripped_intents = list(/datum/intent/shoot/twilight_firearm/flintgonne, /datum/intent/arc/twilight_firearm/flintgonne, INTENT_GENERIC)
 	smeltresult = /obj/item/ingot/iron
-	damfactor = 0.7
-	critfactor = 0.7
+	damfactor = 0.9
+	effective_range = 4
 
 /obj/item/gun/ballistic/twilight_firearm/axtgonne
 	name = "axtbüchse"
@@ -863,6 +863,7 @@
 	damfactor = 0.7
 	critfactor = 0.3
 	npcdamfactor = 2.5
+	effective_range = 3
 	match_delay = 4
 
 /obj/item/gun/ballistic/twilight_firearm/handgonne/purgatory
