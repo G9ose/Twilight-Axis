@@ -160,6 +160,8 @@
 						/obj/item/recipe_book/survival = 1,
 						/obj/item/clothing/mask/rogue/spectacles/golden = 1, //putting them in the bag because bad eye sight virtue strips these
 						/obj/item/contraption/linker = 1,
+						/obj/item/pestle = 1,
+						/obj/item/reagent_containers/glass/mortar = 1
 						)
 	// Not a real mage, no free spell point. Take Arcyne Potential if you want it.
 	if(H.mind)
