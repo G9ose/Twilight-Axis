@@ -30,6 +30,12 @@
 	damfactor = 1.2
 	accfactor = 1.1
 
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/get_mechanics_examine(mob/user)
+	. = ..()
+	. += span_info("Crossbows increase in accuracy with a higher <b>PERCEPTION</b>, but deal a static amount of damage \
+	regardless of character stats.")
+	. += span_info("Crossbows cannot be nocked directly from their quiver and require time to load.")
+
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -47,11 +53,13 @@
 	chargedrain = 0 //no drain to aim a crossbow
 	basetime = 20
 
-/datum/intent/shoot/crossbow/can_charge()
+/datum/intent/shoot/crossbow/can_charge(atom/clicked_object)
 	if(mastermob)
 		if(mastermob.get_num_arms(FALSE) < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
+			return FALSE
+		if(istype(clicked_object, /obj/item/quiver) && istype(mastermob.get_active_held_item(), /obj/item/gun/ballistic))
 			return FALSE
 	return TRUE
 
@@ -81,11 +89,13 @@
 
 
 
-/datum/intent/arc/crossbow/can_charge()
+/datum/intent/arc/crossbow/can_charge(atom/clicked_object)
 	if(mastermob)
 		if(mastermob.get_num_arms(FALSE) < 2)
 			return FALSE
 		if(mastermob.get_inactive_held_item())
+			return FALSE
+		if(istype(clicked_object, /obj/item/quiver) && istype(mastermob.get_active_held_item(), /obj/item/gun/ballistic))
 			return FALSE
 	return TRUE
 
