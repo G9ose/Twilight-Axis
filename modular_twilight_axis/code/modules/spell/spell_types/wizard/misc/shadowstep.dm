@@ -13,7 +13,7 @@
 	associated_skill = /datum/skill/magic/arcane
 	chargedrain = 1
 	chargetime = 0 SECONDS
-	recharge_time = 30 SECONDS
+	recharge_time = 50 SECONDS
 	hide_charge_effect = TRUE
 	gesture_required = TRUE // Mobility spell
 	spell_tier = 2
@@ -42,11 +42,11 @@
 	var/dist = get_dist(Tt, Tu)
 	var/last_dir
 	var/turf/last_step
-	if(Tu.z > Tt.z) 
+	if(Tu.z > Tt.z)
 		last_step = get_step_multiz(Tu, DOWN)
 	else if(Tu.z < Tt.z)
 		last_step = get_step_multiz(Tu, UP)
-	else 
+	else
 		last_step = locate(Tu.x, Tu.y, Tu.z)
 	var/success = FALSE
 	for(var/i = 0, i <= dist, i++)
@@ -93,7 +93,7 @@
 					return
 				to_chat(user, span_info("I begin to meld with the shadows.."))
 				lockon(T, user)
-				if(do_after(user, 2 SECONDS))
+				if(do_after(user, 3 SECONDS))
 					tp(user)
 				else
 					reset(silent = TRUE)

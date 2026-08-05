@@ -441,16 +441,16 @@
 		/obj/item/paper/inqslip/arrival/ortho = 1,
 		/obj/item/twilight_powderflask/volf = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/mid = 1,
-		/obj/item/inqarticles/garrote = 1,
 		/obj/item/clothing/head/inqarticles/blackbag = 1)
 
 	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/shadowstep)
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/invisibility/runed)
 	H.mind?.RemoveSpell(H.mind.get_spell(/datum/action/cooldown/spell/touch/prestidigitation))
-	var/arcane = list("Fetch", "Leap")
+	var/arcane = list("Fetch", "Leap", "His Cloak")
 	var/arcane_choice = input("TAKE YOUR RUNE.", "PSYDON'S RUNE.") as anything in arcane
 	switch(arcane_choice)
 		if("Fetch")
 			H.mind?.AddSpell(new /datum/action/cooldown/spell/projectile/fetch)
 		if("Leap")
 			H.mind?.AddSpell(new /datum/action/cooldown/spell/leap)
+		if("His Cloak")
+			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/invisibility/runed)

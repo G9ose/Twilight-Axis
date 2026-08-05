@@ -151,7 +151,6 @@
 			H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 4, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/misc/climbing, 4, TRUE)
 			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/shadowstep)
-			H.mind?.AddSpell(new /datum/action/cooldown/spell/repulse/runed)
 			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/invisibility/runed)
 			H.mind?.AddSpell(new /datum/action/cooldown/spell/projectile/fetch)
 			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/stasis)
