@@ -25,6 +25,8 @@
 		/obj/item/bodypart/taur/spider,
 		/obj/item/bodypart/taur/horse,
 		/obj/item/bodypart/taur/goat,
+		/obj/item/bodypart/taur/feline,
+		/obj/item/bodypart/taur/feline_furry
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
