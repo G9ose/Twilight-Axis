@@ -22,7 +22,6 @@
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "platetaur"
-	clothing_flags = TAUR_COMPATIBLE
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
@@ -35,7 +34,7 @@
 	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
 	if(!istype(taur, /obj/item/bodypart/taur/feline))
 		if(!disable_warning)
-			to_chat(M, span_warning("These horseshoes can only be equipped by beings with hooves."))
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
 		return FALSE
 	return ..()
 
@@ -45,7 +44,6 @@
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "gambtaur"
-	clothing_flags = TAUR_COMPATIBLE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
@@ -58,7 +56,7 @@
 	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
 	if(!istype(taur, /obj/item/bodypart/taur/feline))
 		if(!disable_warning)
-			to_chat(M, span_warning("These horseshoes can only be equipped by beings with hooves."))
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
 		return FALSE
 	return ..()
 
@@ -68,7 +66,6 @@
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "chaintaur"
-	clothing_flags = TAUR_COMPATIBLE
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
@@ -81,7 +78,7 @@
 	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
 	if(!istype(taur, /obj/item/bodypart/taur/feline))
 		if(!disable_warning)
-			to_chat(M, span_warning("These horseshoes can only be equipped by beings with hooves."))
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
 		return FALSE
 	return ..()
 
@@ -94,7 +91,6 @@
 	detail_tag = "_detail"
 	color = "#262927"
 	detail_color = "#9c2525"
-	clothing_flags = TAUR_COMPATIBLE
 
 /obj/item/clothing/cloak/t_tabard/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
@@ -107,7 +103,7 @@
 	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
 	if(!istype(taur, /obj/item/bodypart/taur/feline))
 		if(!disable_warning)
-			to_chat(M, span_warning("These horseshoes can only be equipped by beings with hooves."))
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
 		return FALSE
 	return ..()
 
@@ -117,6 +113,59 @@
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "coattaurup"
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur
+	name = "tauric iron hauberk"
+	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	icon_state = "ichaintaur"
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
+	var/mutable_appearance/image = ..()
+	image.pixel_x = -16
+	image.pixel_y = -1
+	return image
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
+	var/mob/living/equipped_to_mob = equipper || M
+	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
+	if(!istype(taur, /obj/item/bodypart/taur/feline))
+		if(!disable_warning)
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
+		return FALSE
+	return ..()
+
+/obj/item/clothing/shoes/roguetown/felinetaur
+	name = "four footwraps"
+	desc = "Two pair of pawraps for feline like creatures....r-r-r."
+	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
+	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	icon_state = "footwrapstaur"
+	item_state = "footwrapstaur"
 	clothing_flags = TAUR_COMPATIBLE
 
+/obj/item/clothing/shoes/roguetown/felinetaur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
+	var/mutable_appearance/image = ..()
+	image.pixel_x = -16
+	image.pixel_y = -1
+	return image
 
+/obj/item/clothing/shoes/roguetown/felinetaur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
+	var/mob/living/equipped_to_mob = equipper || M
+	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
+	if(!istype(taur, /obj/item/bodypart/taur/feline))
+		if(!disable_warning)
+			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
+		return FALSE
+	return ..()
+
+/obj/item/clothing/shoes/roguetown/felinetaur/plate
+	name = "steel horseshoes"
+	desc = "A two pair of robust steel shoes without a sock. For catlike creatures!"
+	icon_state = "platebootstaur"
+	item_state = "platebootstaur"
+	max_integrity = ARMOR_INT_LEG_STEEL_CHAIN
+	sewrepair = FALSE
+	armor = ARMOR_PLATE
+	smeltresult = /obj/item/ingot/steel
