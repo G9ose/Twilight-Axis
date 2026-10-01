@@ -38,6 +38,13 @@
 		return FALSE
 	return ..()
 
+/obj/item/enchantingkit/taur_armor_plate
+	name = "'tauric plate armor morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of an steel plate armor."
+	target_items = list(
+		/obj/item/clothing/suit/roguetown/armor/plate/full			= /obj/item/clothing/suit/roguetown/armor/plate/full/taur)
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/plate/full/taur
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur
 	name = "tauric padded gambeson"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
@@ -59,6 +66,13 @@
 			to_chat(M, span_warning("This armor can fit only catlike creatures!."))
 		return FALSE
 	return ..()
+
+/obj/item/enchantingkit/taur_armor_gambeson
+	name = "'tauric gambeson morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of an padded gambeson."
+	target_items = list(
+		/obj/item/clothing/suit/roguetown/armor/gambeson/heavy			= /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur)
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur
 	name = "tauric haugerk"
@@ -136,6 +150,14 @@
 		return FALSE
 	return ..()
 
+/obj/item/enchantingkit/taur_armor_hauberk
+	name = "'tauric hauberk morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of a hauberk."
+	target_items = list(
+		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk			= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur,
+		/obj/item/clothing/suit/roguetown/armor/chainmail/iron			= /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur)
+	icon_loadout = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur
+
 /obj/item/clothing/shoes/roguetown/felinetaur
 	name = "four footwraps"
 	desc = "Two pair of pawraps for feline like creatures....r-r-r."
@@ -161,7 +183,7 @@
 	return ..()
 
 /obj/item/clothing/shoes/roguetown/felinetaur/plate
-	name = "steel horseshoes"
+	name = "four steel plate boots"
 	desc = "A two pair of robust steel shoes without a sock. For catlike creatures!"
 	icon_state = "platebootstaur"
 	item_state = "platebootstaur"
@@ -169,3 +191,10 @@
 	sewrepair = FALSE
 	armor = ARMOR_PLATE
 	smeltresult = /obj/item/ingot/steel
+
+/obj/item/enchantingkit/taur_armor_plateboots
+	name = "'four steel plate boots morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of an steel plate boots."
+	target_items = list(
+		/obj/item/clothing/shoes/roguetown/boots/armor			= /obj/item/clothing/shoes/roguetown/felinetaur/plate)
+	icon_loadout = /obj/item/clothing/shoes/roguetown/felinetaur/plate
