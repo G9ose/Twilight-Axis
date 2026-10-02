@@ -1690,3 +1690,35 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 	howner.update_a_intents()
 	howner.regenerate_icons()
 	playsound(W.loc, 'sound/foley/waterenter.ogg', 100)
+
+/datum/special_intent/cudgel_knockout
+	name = "Knockout"
+	desc = "A strong attack right on the head of your victim. Precise anough for give her a nap."
+	tile_coordinates = list(list(0,0))
+	post_icon_state = "heavy_attack_long"
+	pre_icon = 'icons/effects/telegraph.dmi'
+	pre_icon_state = "warning"
+	sfx_post_delay = 'sound/combat/clash_charge.ogg'
+	delay = 1 SECONDS
+	cooldown = 30 SECONDS
+	stamcost = 25
+	var/eff_dur = 5
+	var/dam
+	requires_wielding = FALSE
+
+/datum/special_intent/cudgel_knockout/process_attack()
+	var/obj/item/rogueweapon/W = iparent
+	dam = W.force_dynamic * max((1 + (((howner.STASTR - 5) + (howner.STAPER - 5)) / 10)), 0.1)
+	. = ..()
+
+/datum/special_intent/cudgel_knockout/apply_hit(turf/T)
+	for(var/mob/living/L in get_hearers_in_view(0, T))
+		if(L != howner)
+			if(!(L.can_see_cone(howner)) && (L.stat == CONSCIOUS))
+				if(prob(60))
+					L.apply_status_effect(/datum/status_effect/debuff/knockout)
+			L.apply_status_effect(/datum/status_effect/debuff/dazed)
+			if(L.mobility_flags & MOBILITY_STAND)
+				apply_generic_weapon_damage(L, dam, "blunt", pick(BODY_ZONE_HEAD), bclass = BCLASS_BLUNT)
+			L.apply_status_effect(/datum/status_effect/debuff/vulnerable, 30 SECONDS)
+	..()
