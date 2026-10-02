@@ -1706,6 +1706,10 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 	var/dam
 	requires_wielding = FALSE
 
+/datum/special_intent/cudgel_knockout/on_create()
+	. = ..()
+	playsound(howner, 'sound/combat/ground_smash_start.ogg', 100, TRUE)
+
 /datum/special_intent/cudgel_knockout/process_attack()
 	var/obj/item/rogueweapon/W = iparent
 	dam = W.force_dynamic * max((1 + (((howner.STASTR - 5) + (howner.STAPER - 5)) / 10)), 0.1)
@@ -1715,7 +1719,7 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 	for(var/mob/living/L in get_hearers_in_view(0, T))
 		if(L != howner)
 			if(!(L.can_see_cone(howner)) && (L.stat == CONSCIOUS))
-				if(prob(60))
+				if(prob(((howner.STASTR - 3) + (howner.STAPER - 3)) * 3))
 					L.apply_status_effect(/datum/status_effect/debuff/knockout)
 			L.apply_status_effect(/datum/status_effect/debuff/dazed)
 			if(L.mobility_flags & MOBILITY_STAND)
