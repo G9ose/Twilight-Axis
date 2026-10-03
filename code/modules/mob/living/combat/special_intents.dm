@@ -1698,17 +1698,18 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 	post_icon_state = "heavy_attack_long"
 	pre_icon = 'icons/effects/telegraph.dmi'
 	pre_icon_state = "warning"
-	sfx_post_delay = 'sound/combat/clash_charge.ogg'
+	sfx_post_delay = 'sound/combat/flail_sweep_hit_minor.ogg'
 	delay = 1 SECONDS
-	cooldown = 30 SECONDS
+	cooldown = 35 SECONDS
 	stamcost = 25
 	var/eff_dur = 5
 	var/dam
+	var/KD_dur = 1 SECONDS
 	requires_wielding = FALSE
 
 /datum/special_intent/cudgel_knockout/on_create()
 	. = ..()
-	playsound(howner, 'sound/combat/ground_smash_start.ogg', 100, TRUE)
+	playsound(howner, 'sound/combat/clash_charge.ogg', 100, TRUE)
 
 /datum/special_intent/cudgel_knockout/process_attack()
 	var/obj/item/rogueweapon/W = iparent
@@ -1718,11 +1719,31 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 /datum/special_intent/cudgel_knockout/apply_hit(turf/T)
 	for(var/mob/living/L in get_hearers_in_view(0, T))
 		if(L != howner)
+
+			var/throwtarget = get_edge_target_turf(howner, get_dir(howner, get_step_away(L, howner)))
+			var/throwdist = 1
+			var/target_zone = get_aimed_zone(L)
+
+			if(L.has_status_effect(/datum/status_effect/debuff/exposed) || L.has_status_effect(/datum/status_effect/debuff/vulnerable)) // big damage and a knockdown if they exposed / vuln.
+				L.Knockdown(KD_dur)
+				throwdist = rand(2,2)
+				L.Stun(4 SECONDS)
+				dam = 180
 			if(!(L.can_see_cone(howner)) && (L.stat == CONSCIOUS))
-				if(prob((((howner.STASTR - 3) + (howner.STAPER - 3)) * 3) - 30))
-					L.apply_status_effect(/datum/status_effect/debuff/knockout)
-			L.apply_status_effect(/datum/status_effect/debuff/dazed)
-			if(L.mobility_flags & MOBILITY_STAND)
-				apply_generic_weapon_damage(L, dam, "blunt", pick(BODY_ZONE_HEAD), bclass = BCLASS_BLUNT)
-			L.apply_status_effect(/datum/status_effect/debuff/vulnerable, 30 SECONDS)
+				dam = 160
+				L.apply_status_effect(/datum/status_effect/debuff/knocked)
+			else
+				L.apply_status_effect(/datum/status_effect/debuff/dazed)
+
+			target_zone = BODY_ZONE_HEAD
+			apply_generic_weapon_damage(L, dam, "blunt", target_zone, bclass = BCLASS_BLUNT)
+			L.safe_throw_at(throwtarget, throwdist, 1, howner, force = MOVE_FORCE_EXTREMELY_STRONG)
+			L.apply_status_effect(/datum/status_effect/debuff/vulnerable, 10 SECONDS)
 	..()
+
+/datum/status_effect/debuff/knocked
+	id = "dazed"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/dazed
+	effectedstats = list(STATKEY_PER = -3, STATKEY_INT = -2, STATKEY_SPD = -3)
+	duration = 20 SECONDS
+	status_type = STATUS_EFFECT_REFRESH
