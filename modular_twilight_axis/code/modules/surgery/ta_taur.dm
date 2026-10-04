@@ -28,7 +28,6 @@
 /obj/item/clothing/suit/roguetown/armor/plate/full/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -59,7 +58,6 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -90,7 +88,6 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -117,7 +114,6 @@
 /obj/item/clothing/cloak/t_tabard/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/cloak/t_tabard/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -148,7 +144,6 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -180,7 +175,6 @@
 /obj/item/clothing/shoes/roguetown/felinetaur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
-	image.pixel_y = -1
 	return image
 
 /obj/item/clothing/shoes/roguetown/felinetaur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
@@ -200,6 +194,7 @@
 	max_integrity = ARMOR_INT_LEG_STEEL_CHAIN
 	sewrepair = FALSE
 	armor = ARMOR_PLATE
+	clothing_flags = TAUR_COMPATIBLE
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/enchantingkit/taur_armor_plateboots
