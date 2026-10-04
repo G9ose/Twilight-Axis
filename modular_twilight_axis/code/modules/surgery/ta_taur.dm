@@ -18,6 +18,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/taur
 	name = "tauric plate armor"
+	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	bloody_icon_state = "blood_taur"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
@@ -47,6 +49,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/taur
 	name = "tauric padded gambeson"
+	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	bloody_icon_state = "blood_taur"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
@@ -76,6 +80,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur
 	name = "tauric haugerk"
+	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	bloody_icon_state = "blood_taur"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
@@ -98,6 +104,8 @@
 
 /obj/item/clothing/cloak/t_tabard/taur
 	name = "tauric tabard"
+	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	bloody_icon_state = "blood_taur"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
@@ -130,6 +138,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur
 	name = "tauric iron hauberk"
+	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
+	bloody_icon_state = "blood_taur"
 	icon = 'modular_twilight_axis/icons/clothing/feline_taur_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
@@ -155,7 +165,7 @@
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of a hauberk."
 	target_items = list(
 		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk			= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur,
-		/obj/item/clothing/suit/roguetown/armor/chainmail/iron			= /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur)
+		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron			= /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur)
 	icon_loadout = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur
 
 /obj/item/clothing/shoes/roguetown/felinetaur
