@@ -1700,7 +1700,7 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 	pre_icon_state = "warning"
 	sfx_post_delay = 'sound/combat/flail_sweep_hit_minor.ogg'
 	delay = 1 SECONDS
-	cooldown = 35 SECONDS
+	cooldown = 25 SECONDS
 	stamcost = 25
 	var/eff_dur = 5
 	var/dam
@@ -1724,13 +1724,11 @@ tile_coordinates = list(list(1,1), list(-1,1), list(-1,-1), list(1,-1),list(0,0)
 			var/throwdist = 1
 			var/target_zone = get_aimed_zone(L)
 
-			if(L.has_status_effect(/datum/status_effect/debuff/exposed) || L.has_status_effect(/datum/status_effect/debuff/vulnerable)) // big damage and a knockdown if they exposed / vuln.
+			if((!(L.can_see_cone(howner)) && (L.stat == CONSCIOUS)) || L.has_status_effect(/datum/status_effect/debuff/exposed) || L.has_status_effect(/datum/status_effect/debuff/vulnerable))
+				dam = 110
 				L.Knockdown(KD_dur)
 				throwdist = rand(2,2)
-				L.Stun(4 SECONDS)
-				dam = 180
-			if(!(L.can_see_cone(howner)) && (L.stat == CONSCIOUS))
-				dam = 160
+				L.Stun(2 SECONDS)
 				L.apply_status_effect(/datum/status_effect/debuff/knocked)
 			else
 				L.apply_status_effect(/datum/status_effect/debuff/dazed)
