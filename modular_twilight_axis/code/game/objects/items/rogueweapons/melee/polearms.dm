@@ -82,7 +82,7 @@
 	pre_icon = 'icons/effects/telegraph.dmi'
 	pre_icon_state = "warning"
 	sfx_post_delay = 'sound/combat/flail_sweep_hit_minor.ogg'
-	delay = 1 SECONDS
+	delay = 0.8 SECONDS
 	cooldown = 25 SECONDS
 	stamcost = 25
 	var/eff_dur = 5
