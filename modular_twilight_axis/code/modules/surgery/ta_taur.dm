@@ -132,7 +132,7 @@
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "coattaurup"
 
-/obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron/taur
 	name = "tauric iron hauberk"
 	bloody_icon = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	bloody_icon_state = "blood_taur"
@@ -141,12 +141,12 @@
 	sleeved = 'modular_twilight_axis/icons/clothing/onmob/feline_taur_armor.dmi'
 	icon_state = "ichaintaur"
 
-/obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron/taur/build_worn_icon(default_layer, default_icon_file, isinhands, femaleuniform, override_state, female, customi, sleeveindex, boobed_overlay, icon/clip_mask)
 	var/mutable_appearance/image = ..()
 	image.pixel_x = -16
 	return image
 
-/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron/taur/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning)
 	var/mob/living/equipped_to_mob = equipper || M
 	var/obj/item/bodypart/taur/taur = equipped_to_mob.get_taur_tail()
 	if(!istype(taur, /obj/item/bodypart/taur/feline))
@@ -159,8 +159,8 @@
 	name = "'tauric hauberk morphing elixir"
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of a hauberk."
 	target_items = list(
-		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk			= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur,
-		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron			= /obj/item/clothing/suit/roguetown/armor/chainmail/iron/taur)
+		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron			= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron/taur,
+		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk			= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur)
 	icon_loadout = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/taur
 
 /obj/item/clothing/shoes/roguetown/felinetaur
