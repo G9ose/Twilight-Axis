@@ -5512,7 +5512,3 @@ GLOBAL_LIST_EMPTY(loadout_items_by_category)
 	category = "Обувь"
 	path = /obj/item/clothing/shoes/roguetown/felinetaur
 
-/datum/loadout_item/taur_plateboots
-	name = "feline taur plated boots morphing elixir"
-	category = "Обувь"
-	path = /obj/item/enchantingkit/taur_armor_plateboots

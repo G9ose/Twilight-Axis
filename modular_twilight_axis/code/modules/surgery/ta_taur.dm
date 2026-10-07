@@ -197,9 +197,9 @@
 	clothing_flags = TAUR_COMPATIBLE
 	smeltresult = /obj/item/ingot/steel
 
-/obj/item/enchantingkit/taur_armor_plateboots
-	name = "'four steel plate boots morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of an steel plate boots."
-	target_items = list(
-		/obj/item/clothing/shoes/roguetown/boots/armor			= /obj/item/clothing/shoes/roguetown/felinetaur/plate)
-	icon_loadout = /obj/item/clothing/shoes/roguetown/felinetaur/plate
+/datum/anvil_recipe/armor/steel/horseshoes
+	name = "Feline tauric plate boots"
+	category = "Steel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/shoes/roguetown/felinetaur/plate
+	display_category = ITEM_CAT_SMITHING_MISC
