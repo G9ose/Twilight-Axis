@@ -5487,4 +5487,12 @@ GLOBAL_LIST_EMPTY(loadout_items_by_category)
 	category = list("Одежда")
 	path = /obj/item/clothing/mask/rogue/plague_g
 	donatitem = TRUE
+	donat_tier = 3
+
+
+/datum/loadout_item/donator/mask_g_g
+	name = "Plague mask"
+	category = list("Одежда")
+	path = /obj/item/clothing/mask/rogue/plague_g
+	donatitem = TRUE
 	ckeywhitelist = list("gisya")
