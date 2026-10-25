@@ -52,18 +52,20 @@
 	body_parts_covered = EYES
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HEAD
 	anvilrepair = /datum/skill/craft/armorsmithing
-//	block2add = FOV_BEHIND
 	grid_width = 32
 	grid_height = 32
 	/// Can these spectacles be attached to specific items? (Make this FALSE if it's something too unusual to do this with)
 	var/attachable = TRUE
 
+/obj/item/clothing/mask/rogue/spectacles/thin
+	name = "thin-lensed spectacles"
+	icon_state = "glassesa"
+
 /obj/item/clothing/mask/rogue/spectacles/fancy
 	name = "fancy spectacles"
 	desc = "Delicate, thin-lensed spectacles of foreign make, their craft finer than most local wares."
 	icon_state = "glassesb"
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/masks.dmi'
-	max_integrity = 30
+	max_integrity = 35
 
 /obj/item/clothing/mask/rogue/spectacles/fancy/dark
 	name = "fancy tinted spectacles"
@@ -896,7 +898,7 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	anvilrepair = /datum/skill/craft/armorsmithing
-	smeltresult = /obj/item/ash
+	smeltresult = /obj/item/natural/ash
 	stack_fovs = TRUE
 	attachable = FALSE
 
@@ -930,7 +932,7 @@
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/fibers
 	salvage_amount = 1
-	smeltresult = /obj/item/ash
+	smeltresult = /obj/item/natural/ash
 
 /obj/item/clothing/mask/rogue/facemask/padded/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/rummaging-03.ogg', null, (UPD_HEAD|UPD_MASK))	//Standard mask
@@ -948,7 +950,7 @@
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 1
-	smeltresult = /obj/item/ash
+	smeltresult = /obj/item/natural/ash
 
 /obj/item/clothing/mask/rogue/facemask/leather/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/rummaging-03.ogg', null, (UPD_HEAD|UPD_MASK))	//Standard mask
